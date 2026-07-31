@@ -6,6 +6,22 @@ Handles data validation, duplicate removal, and missing value handling.
 import pandas as pd
 import numpy as np
 
+def validate_required_columns(df):
+    """
+    Check if the uploaded dataframe has the minimum required columns.
+    Fails fast if critical data is missing.
+    """
+    # These are the columns our dashboard absolutely needs to function
+    required_columns = ['Age', 'Department', 'Attrition']
+    
+    # Find which required columns are missing from the uploaded file
+    missing_cols = [col for col in required_columns if col not in df.columns]
+    
+    # If there are missing columns, raise an error to stop execution
+    if missing_cols:
+        raise ValueError(f"Missing required columns: {missing_cols}. Please upload a valid HR dataset.")
+    
+    return True
 
 def load_and_clean_data(uploaded_file):
     """
@@ -17,6 +33,8 @@ def load_and_clean_data(uploaded_file):
     # Load the raw data
     df = pd.read_csv(uploaded_file)
     original_rows = len(df)
+
+    validate_required_columns(df)
     
     # Step 1: Remove duplicates
     df_clean = df.drop_duplicates()
@@ -70,18 +88,18 @@ def fill_missing_values(df):
     return df
 
 
-def validate_required_columns(df, required_columns):
-    """
-    Check if all required columns exist in the dataframe.
-    Raises an error if any are missing.
+# def validate_required_columns(df, required_columns):
+#     """
+#     Check if all required columns exist in the dataframe.
+#     Raises an error if any are missing.
     
-    Why use assertions?
-    Fail fast! Better to crash early with a clear message
-    than produce wrong results silently.
-    """
-    missing_cols = [col for col in required_columns if col not in df.columns]
+#     Why use assertions?
+#     Fail fast! Better to crash early with a clear message
+#     than produce wrong results silently.
+#     """
+#     missing_cols = [col for col in required_columns if col not in df.columns]
     
-    if missing_cols:
-        raise ValueError(f"Missing required columns: {missing_cols}")
+#     if missing_cols:
+#         raise ValueError(f"Missing required columns: {missing_cols}")
     
-    return True
+#     return True
