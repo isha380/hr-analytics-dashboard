@@ -7,6 +7,7 @@ import plotly.express as px
 import config  # Import our configuration
 
 
+
 def create_department_chart(df):
     """
     Create a bar chart showing employee count by department.
@@ -76,6 +77,35 @@ def create_attrition_pie_chart(df):
     
     return fig
 
+
+
+def create_correlation_heatmap(df):
+    """
+    
+    Why a heatmap?
+    It visually highlights strong positive (blue) or negative (red) relationships
+    between variables, helping HR identify hidden patterns (e.g., Age vs Income).
+    """
+    # 1. Select only numeric columns (correlation only works on numbers)
+    numeric_df = df.select_dtypes(include=['float64', 'int64'])
+    
+    # 2. Calculate the correlation matrix
+    # A value of 1.0 means perfect positive correlation, -1.0 is perfect negative
+    corr_matrix = numeric_df.corr()
+    
+    # 3. Create the Plotly heatmap
+    fig = px.imshow(
+        corr_matrix,
+        text_auto=".2f",  # Shows the correlation number inside each box
+        title="Feature Correlation Heatmap",
+        color_continuous_scale='RdBu_r', # Red-Blue color scale (Red=Negative, Blue=Positive)
+        aspect="auto"
+    )
+    
+    # Adjust layout for better readability
+    fig.update_layout(height=600)
+    
+    return fig
 
 def create_all_charts(df):
     """
