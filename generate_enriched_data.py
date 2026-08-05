@@ -1,5 +1,5 @@
 """
-Script to generate a realistic dummy HR dataset with employee feedback.
+Script to generate a realistic dummy HR dataset with employee feedback and leave data.
 """
 
 import pandas as pd
@@ -33,29 +33,57 @@ negative_comments = [
     "Toxic environment, no work-life balance."
 ]
 
-# 3. Assign feedback based on Attrition and OverTime (Columns we actually have!)
+# 3. Assign feedback based on Attrition and OverTime
 feedback_list = []
 
 for index, row in df.iterrows():
     left_company = row['Attrition'] == 'Yes'
     does_overtime = row['OverTime'] == 'Yes'
     
-    # Logic: If they left, they are definitely unhappy.
     if left_company:
         comment = random.choice(negative_comments)
-    # If they work overtime but stayed, they might be neutral/stressed.
     elif does_overtime:
         comment = random.choice(neutral_comments)
-    # If they stayed and don't work overtime, they are likely happy.
     else:
         comment = random.choice(positive_comments)
         
     feedback_list.append(comment)
 
-# 4. Add the new column and save
 df['Feedback'] = feedback_list
 
-# Save to a new file so we don't overwrite our original clean data
+# 4. Generate Leave and Absenteeism Data
+annual_leave = []
+sick_leave = []
+absenteeism_rate = []
+
+for index, row in df.iterrows():
+    left_company = row['Attrition'] == 'Yes'
+    does_overtime = row['OverTime'] == 'Yes'
+    
+    # Logic: People who quit usually have high sick leave and low annual leave (burnout)
+    if left_company:
+        annual = random.randint(0, 5)      # Didn't take vacations
+        sick = random.randint(10, 20)      # Called in sick often
+    elif does_overtime:
+        annual = random.randint(5, 12)     # Took some vacation
+        sick = random.randint(3, 8)        # Occasional sick days
+    else:
+        annual = random.randint(10, 20)    # Healthy work-life balance
+        sick = random.randint(0, 3)        # Rarely sick
+        
+    annual_leave.append(annual)
+    sick_leave.append(sick)
+    
+    # Calculate absenteeism rate (Sick days / 250 working days in a year)
+    rate = round((sick / 250) * 100, 2)
+    absenteeism_rate.append(rate)
+
+df['AnnualLeaveTaken'] = annual_leave
+df['SickLeaveTaken'] = sick_leave
+df['AbsenteeismRate'] = absenteeism_rate
+
+# 5. Save to a new file
 df.to_csv("data/hr_data_enriched.csv", index=False)
 
-print("✅ Successfully created 'data/hr_data_enriched.csv' with realistic feedback!")
+print("✅ Successfully created 'data/hr_data_enriched.csv' with feedback and leave data!")
+print(f"   Columns added: Feedback, AnnualLeaveTaken, SickLeaveTaken, AbsenteeismRate")

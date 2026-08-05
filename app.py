@@ -173,6 +173,7 @@ from modules import charts
 from modules import attrition
 from modules import sentiment
 import plotly.express as px
+from modules import leave
 import config
 
 # ============ PAGE CONFIGURATION ============
@@ -492,6 +493,49 @@ if uploaded_file is not None:
             st.warning(
                 "⚠️ No 'Feedback' column found. NLP analysis skipped."
             )
+
+        # ==========================================
+        # --- DAY 10: LEAVE & ABSENTEEISM ---
+        # ==========================================
+        st.markdown('<div class="sub-header">Step 4: Leave & Absenteeism Analytics</div>', unsafe_allow_html=True)
+        
+       
+        if "AbsenteeismRate" in df_filtered.columns:
+            
+            
+            dept_stats = leave.calculate_department_leave_stats(df_filtered)
+            
+            # 2. Display High-Level Metrics
+            avg_sick = df_filtered['SickLeaveTaken'].mean()
+            avg_annual = df_filtered['AnnualLeaveTaken'].mean()
+            
+            leave_col1, leave_col2 = st.columns(2)
+            with leave_col1:
+                st.markdown(f'<div class="metric-card"><div class="metric-label">Avg Sick Days (Company)</div><div class="metric-value">{avg_sick:.1f}</div></div>', unsafe_allow_html=True)
+            with leave_col2:
+                st.markdown(f'<div class="metric-card"><div class="metric-label">Avg Vacation Days Used</div><div class="metric-value">{avg_annual:.1f}</div></div>', unsafe_allow_html=True)
+
+            # 3. Create a Bar Chart for Department Absenteeism
+            # We reset_index() because groupby makes 'Department' the index, and Plotly needs it as a column
+            dept_stats_reset = dept_stats.reset_index() 
+            
+            fig_leave = px.bar(
+                dept_stats_reset, 
+                x='Department', 
+                y='AbsenteeismRate', 
+                title="Absenteeism Rate by Department (%)",
+                color='AbsenteeismRate',
+                color_continuous_scale='Reds' # Redder means higher absenteeism
+            )
+            st.plotly_chart(fig_leave, use_container_width=True)
+
+            # 4. Show Top Absentees Table
+            st.markdown('<div class="sub-header">⚠️ Employees Requiring Wellness Check-in</div>', unsafe_allow_html=True)
+            top_absentees = leave.get_top_absentees(df_filtered, top_n=5)
+            st.dataframe(top_absentees, use_container_width=True)
+            
+        else:
+            st.warning("⚠️ Leave data is not available in this dataset.")
 
         # ==========================================
         # VISUALIZATIONS
