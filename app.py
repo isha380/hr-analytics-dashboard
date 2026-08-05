@@ -174,6 +174,8 @@ from modules import attrition
 from modules import sentiment
 import plotly.express as px
 from modules import leave
+from modules import diversity
+from modules import compensation
 import config
 
 # ============ PAGE CONFIGURATION ============
@@ -536,6 +538,92 @@ if uploaded_file is not None:
             
         else:
             st.warning("⚠️ Leave data is not available in this dataset.")
+
+        # ==========================================
+        # --- DAY 11: DIVERSITY & DEMOGRAPHICS ---
+        # ==========================================
+        st.markdown('<div class="sub-header">Step 5: Diversity & Demographics</div>', unsafe_allow_html=True)
+        
+        # Create two columns for the charts
+        div_col1, div_col2 = st.columns(2)
+        
+        with div_col1:
+            st.markdown("#### Gender Distribution by Job Role")
+            # Get the data from our module
+            gender_data = diversity.get_gender_distribution_by_role(df_filtered)
+            
+            # Create a stacked bar chart
+            # barmode='stack' puts Male and Female on top of each other to show total role size
+            fig_gender = px.bar(
+                gender_data, 
+                x='JobRole', 
+                y='Count', 
+                color='Gender', 
+                barmode='stack',
+                title="Gender Breakdown per Role",
+                color_discrete_map={'Male': '#3b82f6', 'Female': '#ec4899'} # Blue and Pink
+            )
+            st.plotly_chart(fig_gender, use_container_width=True)
+            
+        with div_col2:
+            st.markdown("#### Age Distribution by Department")
+            # Get the stats table
+            age_stats = diversity.get_age_stats_by_department(df_filtered)
+            st.dataframe(age_stats, use_container_width=True)
+            
+            fig_age = px.box(
+                df_filtered, 
+                x='Department', 
+                y='Age', 
+                color='Department',
+                title="Age Spread per Department",
+                points="outliers" # Shows individual dots for very young/old employees
+            )
+            st.plotly_chart(fig_age, use_container_width=True)
+
+        # ==========================================
+        # --- DAY 12: COMPENSATION & PAY EQUITY ---
+        # ==========================================
+        st.markdown('<div class="sub-header">Step 6: Compensation & Pay Equity</div>', unsafe_allow_html=True)
+        
+        
+        if "MonthlyIncome" in df_filtered.columns and "YearsAtCompany" in df_filtered.columns:
+            
+            comp_col1, comp_col2 = st.columns(2)
+            
+            with comp_col1:
+                st.markdown("#### Gender Pay Gap by Role")
+                # Get the average pay data
+                pay_data = compensation.get_average_pay_by_role_and_gender(df_filtered)
+                
+                # Create a grouped bar chart (barmode='group' puts bars side-by-side)
+                fig_pay = px.bar(
+                    pay_data, 
+                    x='JobRole', 
+                    y='MonthlyIncome', 
+                    color='Gender', 
+                    barmode='group',
+                    title="Average Monthly Income by Gender",
+                    color_discrete_map={'Male': '#3b82f6', 'Female': '#ec4899'}
+                )
+                st.plotly_chart(fig_pay, use_container_width=True)
+                
+            with comp_col2:
+                st.markdown("#### Income vs. Experience")
+                # Create a scatter plot
+                # Each dot is one employee. X-axis is years worked, Y-axis is salary.
+                fig_scatter = px.scatter(
+                    df_filtered, 
+                    x='YearsAtCompany', 
+                    y='MonthlyIncome', 
+                    color='Gender',
+                    title="Salary Growth Over Time",
+                    opacity=0.7 # Makes dots slightly transparent so we can see overlaps
+                )
+                st.plotly_chart(fig_scatter, use_container_width=True)
+                
+        else:
+            st.warning("⚠️ Compensation data is not available in this dataset.")
 
         # ==========================================
         # VISUALIZATIONS
