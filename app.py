@@ -176,6 +176,7 @@ import plotly.express as px
 from modules import leave
 from modules import diversity
 from modules import compensation
+from modules import pdf_report
 import config
 
 # ============ PAGE CONFIGURATION ============
@@ -685,6 +686,47 @@ if uploaded_file is not None:
 
         st.session_state["df_clean"] = df_filtered
 
+       
+  
+        # ==========================================
+        # --- DAY 13: PDF EXPORT ---
+        # ==========================================
+  
+        st.markdown("---")
+        st.markdown('<div class="sub-header">Step 7: Export Executive Report</div>', unsafe_allow_html=True)
+        st.markdown("Download a professional PDF report with charts, insights, and recommendations.")
+        
+        # SAFETY CHECK: Only show PDF download if we have data
+        if len(df_filtered) > 0:
+            try:
+                temp_pdf_path = "output/temp_hr_report.pdf"
+                
+                import os
+                os.makedirs("output", exist_ok=True)
+                
+                # Show progress
+                with st.spinner("Generating professional PDF report..."):
+                    pdf_report.generate_hr_report(
+                        df_filtered, 
+                        temp_pdf_path,
+                        cleaning_summary=summary,
+                        model_accuracy=accuracy if 'accuracy' in locals() else None
+                    )
+                
+                with open(temp_pdf_path, "rb") as pdf_file:
+                    st.download_button(
+                        label="📥 Download PDF Report",
+                        data=pdf_file,
+                        file_name="HR_Executive_Summary.pdf",
+                        mime="application/pdf"
+                    )
+                    
+            except Exception as pdf_error:
+                st.error(f"❌ **PDF Generation Failed**\n\nError: {str(pdf_error)}\n\nPlease check the terminal for more details.")
+                import traceback
+                st.code(traceback.format_exc())
+        else:
+            st.warning("️ **Cannot generate report**\n\nNo employees match your current filters.")
     except Exception as e:
         st.error("No data to visualize.\n\n The filters you selected returned 0 employees. Please adjust your filters in the sidebar to see charts and data.")
 else:
