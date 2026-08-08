@@ -706,14 +706,17 @@ if uploaded_file is not None:
                 
                 # Show progress
                 with st.spinner("Generating professional PDF report..."):
-                    pdf_report.generate_hr_report(
+                    pdf_path, csv_path = pdf_report.generate_hr_report(
                         df_filtered, 
                         temp_pdf_path,
                         cleaning_summary=summary,
-                        model_accuracy=accuracy if 'accuracy' in locals() else None
+                        model_accuracy=accuracy if 'accuracy' in locals() else None,
+                        export_csv=True
                     )
+                    print(f"✓ PDF Report: {pdf_path}")
+                    print(f"✓ Cleaned Data: {csv_path}")
                 
-                with open(temp_pdf_path, "rb") as pdf_file:
+                with open(pdf_path, "rb") as pdf_file:
                     st.download_button(
                         label="📥 Download PDF Report",
                         data=pdf_file,

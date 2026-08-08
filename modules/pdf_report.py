@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.io as pio
 
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor, white, black
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
@@ -40,18 +40,32 @@ BOTTOM_MARGIN = 1.2 * inch
 
 
 # ==========================================
-# STYLES - Simple Dictionary Approach
+# STYLES 
 # ==========================================
+
 def get_styles():
-    """Return a simple dictionary of styles."""
+    """Simple dictionary of styles."""
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    
     base = getSampleStyleSheet()
     
     return {
         'Title': base['Title'],
         'Heading1': base['Heading1'],
         'Heading2': base['Heading2'],
+        'Heading3': base['Heading3'],
         'Normal': base['Normal'],
         'BodyText': base['BodyText'],
+        'SubHeader': base['Heading3'],
+        'BodyText2': base['Normal'],
+        'BulletPoint': base['Normal'],
+        'CoverTitle': base['Title'],
+        'CoverSubtitle': base['Normal'],
+        'KPIValue': base['Normal'],
+        'KPILabel': base['Normal'],
+        'Footer': base['Normal'],
+        'SectionHeader' : base['Heading2']
+        
     }
 # ==========================================
 # CHART EXPORT UTILITY
@@ -499,7 +513,7 @@ def build_compensation_report(df, styles, temp_dir=None):
 
 
 # ==========================================
-# SECTION 9: CORRELATION ANALYSIS
+# SECTION 9: CORRELATION ANALYSIS 
 # ==========================================
 def build_correlation_report(df, styles, temp_dir=None):
     """Build correlation analysis section with interpretation."""
@@ -529,36 +543,44 @@ def build_correlation_report(df, styles, temp_dir=None):
             color_continuous_scale='RdBu_r',
             aspect="auto"
         )
-        chart_path = export_plotly_chart(fig, 'correlation_chart.png', width=800, height=600)
-        elements.append(Image(chart_path, width=6.5*inch, height=4.5*inch))
+        fig.update_layout(
+            margin=dict(l=200, r=50, t=80, b=100),  
+            font=dict(size=10),  
+            height=600,
+            width=1000  
+       )
     
+    chart_path = export_plotly_chart(fig, 'correlation_chart.png', width=1000, height=600)
+    elements.append(Image(chart_path, width=6*inch, height=4*inch))
     elements.append(Spacer(1, 0.2 * inch))
     elements.append(Paragraph("<b>Key Correlations:</b>", styles['SubHeader']))
     
-    # Find strongest correlations (excluding self-correlations)
-    import numpy as np
-    np.fill_diagonal(corr_matrix.values, 0)
-    
-    # Strongest positive
-    max_corr = corr_matrix.unstack().sort_values(ascending=False)
-    max_corr = max_corr[max_corr < 1.0]  # Remove self-correlations
+   
+    # Stack and sort the correlation matrix, then filter out self-correlations
+    stacked = corr_matrix.unstack()
+    # Remove diagonal values (where index == column)
+    stacked = stacked[stacked.index.get_level_values(0) != stacked.index.get_level_values(1)]
+    # Sort by absolute value
+    max_corr = stacked.sort_values(ascending=False)
     
     if len(max_corr) > 0:
-        strongest_pos = max_corr.index[0]
+        # Strongest positive
+        strongest_pos_idx = max_corr.index[0]
+        strongest_pos_val = max_corr.iloc[0]
         elements.append(Paragraph(
-            f"• <b>Strongest Positive Correlation:</b> {strongest_pos[0]} and {strongest_pos[1]} ({max_corr.iloc[0]:.2f})",
+            f"• <b>Strongest Positive Correlation:</b> {strongest_pos_idx[0]} and {strongest_pos_idx[1]} ({strongest_pos_val:.2f})",
             styles['BulletPoint']
         ))
         
-        strongest_neg = max_corr.index[-1]
+        # Strongest negative
+        strongest_neg_idx = max_corr.index[-1]
+        strongest_neg_val = max_corr.iloc[-1]
         elements.append(Paragraph(
-            f"• <b>Strongest Negative Correlation:</b> {strongest_neg[0]} and {strongest_neg[1]} ({max_corr.iloc[-1]:.2f})",
+            f"• <b>Strongest Negative Correlation:</b> {strongest_neg_idx[0]} and {strongest_neg_idx[1]} ({strongest_neg_val:.2f})",
             styles['BulletPoint']
         ))
     
     return elements
-
-
 # ==========================================
 # SECTION 10: AI INSIGHTS
 # ==========================================
@@ -667,38 +689,35 @@ def generate_recommendations(df, styles):
 # ==========================================
 # SECTION 12: APPENDIX
 # ==========================================
+
 def build_appendix(df, styles):
-    """Build appendix with data preview."""
+    """Build appendix with data preview - split into two tables."""
     elements = []
     elements.append(PageBreak())
     elements.append(Paragraph("11. Appendix: Data Preview", styles['SectionHeader']))
     elements.append(Paragraph(
-        "The table below shows the first 10 rows of the analyzed dataset:",
+        "The tables below show the first 5 rows of the analyzed dataset:",
         styles['BodyText2']
     ))
     elements.append(Spacer(1, 0.15 * inch))
     
-    # Select key columns for preview
-    preview_cols = ['Age', 'Gender', 'Department', 'JobRole', 'MonthlyIncome', 'YearsAtCompany', 'OverTime', 'Attrition']
-    preview_cols = [col for col in preview_cols if col in df.columns]
+    # TABLE 1: Key employee metrics
+    preview_cols_1 = ['Age', 'Gender', 'Department', 'MonthlyIncome', 'Attrition']
+    preview_cols_1 = [col for col in preview_cols_1 if col in df.columns]
     
-    preview_df = df[preview_cols].head(10)
+    preview_df_1 = df[preview_cols_1].head(5)
+    table_data_1 = [preview_cols_1]
+    for _, row in preview_df_1.iterrows():
+        table_data_1.append([str(row[col])[:20] for col in preview_cols_1])
     
-    # Convert to table data
-    table_data = [preview_cols]
-    for _, row in preview_df.iterrows():
-        table_data.append([str(row[col]) for col in preview_cols])
+    col_widths_1 = [1.3*inch] * len(preview_cols_1)
+    table_1 = Table(table_data_1, colWidths=col_widths_1)
     
-    # Create table
-    col_widths = [1.2*inch] * len(preview_cols)
-    table = Table(table_data, colWidths=col_widths)
-    
-    table_style = [
-        ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold', 8),
-        ('FONT', (0, 1), (-1, -1), 'Helvetica', 7),
+    table_1.setStyle(TableStyle([
+        ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold', 9),
+        ('FONT', (0, 1), (-1, -1), 'Helvetica', 8),
         ('BACKGROUND', (0, 0), (-1, 0), PRIMARY_COLOR),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('TEXTCOLOR', (0, 1), (-1, -1), black),
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
         ('BOX', (0, 0), (-1, -1), 1, PRIMARY_COLOR),
@@ -706,17 +725,175 @@ def build_appendix(df, styles):
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, BG_LIGHT]),
         ('TOPPADDING', (0, 0), (-1, -1), 6),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-    ]
-    table.setStyle(TableStyle(table_style))
+    ]))
+    
+    elements.append(Paragraph("<b>Employee Demographics & Compensation</b>", styles['SubHeader']))
+    elements.append(table_1)
+    elements.append(Spacer(1, 0.2 * inch))
+    
+    # TABLE 2: Work history and engagement
+    preview_cols_2 = ['JobRole', 'YearsAtCompany', 'OverTime', 'Department']
+    preview_cols_2 = [col for col in preview_cols_2 if col in df.columns]
+    
+    if len(preview_cols_2) > 0:
+        preview_df_2 = df[preview_cols_2].head(5)
+        table_data_2 = [preview_cols_2]
+        for _, row in preview_df_2.iterrows():
+            table_data_2.append([str(row[col])[:20] for col in preview_cols_2])
+        
+        col_widths_2 = [1.6*inch] * len(preview_cols_2)
+        table_2 = Table(table_data_2, colWidths=col_widths_2)
+        
+        table_2.setStyle(TableStyle([
+            ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold', 9),
+            ('FONT', (0, 1), (-1, -1), 'Helvetica', 8),
+            ('BACKGROUND', (0, 0), (-1, 0), PRIMARY_COLOR),
+            ('TEXTCOLOR', (0, 0), (-1, 0), white),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('BOX', (0, 0), (-1, -1), 1, PRIMARY_COLOR),
+            ('INNERGRID', (0, 0), (-1, -1), 0.5, HexColor('#d1d5db')),
+            ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, BG_LIGHT]),
+            ('TOPPADDING', (0, 0), (-1, -1), 6),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ]))
+        
+        elements.append(Paragraph("<b>Job Role & Experience</b>", styles['SubHeader']))
+        elements.append(table_2)
+    
+    return elements
+ 
+# ==========================================
+# ENHANCEMENT: Export Cleaned Data & High-Risk Employees Section
+# ==========================================
+
+def export_cleaned_data_with_predictions(df, output_dir="."):
+    """
+    Export cleaned data with all AI/ML predictions to CSV.
+    
+    Args:
+        df: DataFrame with all data and predictions
+        output_dir: Directory to save the CSV
+    
+    Returns:
+        Path to the exported CSV file
+    """
+    import os
+    from datetime import datetime
+    
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    output_path = os.path.join(output_dir, f"HR_Data_Cleaned_{timestamp}.csv")
+    
+    df.to_csv(output_path, index=False)
+    print(f"✓ Cleaned data with predictions exported to: {output_path}")
+    
+    return output_path
+
+
+def build_high_risk_employees_section(df, styles):
+    """
+    Build a section showing top high-risk employees.
+    This gives HR managers actionable employee-level insights.
+    """
+    elements = []
+    
+    # Only include if risk data exists
+    if 'Risk_Category' not in df.columns:
+        return elements
+    
+    # Get high-risk employees
+    high_risk_df = df[df['Risk_Category'] == 'High Risk'].copy()
+    
+    if len(high_risk_df) == 0:
+        return elements
+    
+    elements.append(Paragraph("7.5 High-Risk Employees - Immediate Attention", styles['SectionHeader']))
+    elements.append(Paragraph(
+        f"The following {len(high_risk_df)} employees are identified as high flight risk and require immediate retention focus:",
+        styles['BodyText2']
+    ))
+    elements.append(Spacer(1, 0.15 * inch))
+    
+    # Sort by risk score if available, otherwise just list
+    if 'Risk_Score' in high_risk_df.columns:
+        high_risk_df = high_risk_df.nlargest(10, 'Risk_Score')
+    else:
+        high_risk_df = high_risk_df.head(10)
+    
+    # Build table with key employee info
+    table_cols = []
+    
+    # Determine which columns to show (flexible based on available data)
+    possible_cols = ['EmployeeID', 'Name', 'Department', 'JobRole', 'YearsAtCompany', 'MonthlyIncome']
+    possible_cols += ['Risk_Score', 'Sentiment_Category', 'AbsenteeismRate']
+    
+    # Filter to only columns that exist
+    table_cols = [col for col in possible_cols if col in high_risk_df.columns]
+    
+    if len(table_cols) == 0:
+        # Fallback if no good columns
+        table_cols = high_risk_df.columns.tolist()[:5]
+    
+    # Build table data
+    table_data = [table_cols]
+    
+    for _, row in high_risk_df.iterrows():
+        row_data = []
+        for col in table_cols:
+            val = row[col]
+            
+            # Format numeric values nicely
+            if isinstance(val, float):
+                if col in ['Risk_Score', 'AbsenteeismRate']:
+                    row_data.append(f"{val:.1%}" if val <= 1 else f"{val:.1f}%")
+                elif col == 'MonthlyIncome':
+                    row_data.append(f"${val:,.0f}")
+                else:
+                    row_data.append(f"{val:.2f}")
+            else:
+                row_data.append(str(val)[:20])  # Truncate long strings
+        
+        table_data.append(row_data)
+    
+    # Create table with proper column widths
+    col_width = 6.5 / len(table_cols)  # Scale to fit page
+    col_widths = [col_width * inch for _ in table_cols]
+    
+    table = Table(table_data, colWidths=col_widths)
+    
+    table.setStyle(TableStyle([
+        ('FONT', (0, 0), (-1, 0), 'Helvetica-Bold', 9),
+        ('FONT', (0, 1), (-1, -1), 'Helvetica', 8),
+        ('BACKGROUND', (0, 0), (-1, 0), HexColor('#1e3a8a')),
+        ('TEXTCOLOR', (0, 0), (-1, 0), white),
+        ('TEXTCOLOR', (0, 1), (-1, -1), black),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('BOX', (0, 0), (-1, -1), 1, HexColor('#1e3a8a')),
+        ('INNERGRID', (0, 0), (-1, -1), 0.5, HexColor('#d1d5db')),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor('#f3f4f6')]),
+        ('TOPPADDING', (0, 0), (-1, -1), 8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+    ]))
     
     elements.append(table)
+    elements.append(Spacer(1, 0.2 * inch))
+    
+    # Add retention action items
+    elements.append(Paragraph("<b>Recommended Actions:</b>", styles['SubHeader']))
+    elements.append(Paragraph(
+        "• Schedule 1:1 conversations with each high-risk employee<br/>"
+        "• Conduct career development discussions<br/>"
+        "• Review compensation and benefits alignment<br/>"
+        "• Identify barriers to engagement and satisfaction",
+        styles['BodyText2']
+    ))
+    
     return elements
-
-
 # ==========================================
 # MAIN REPORT GENERATION FUNCTION
 # ==========================================
-def generate_hr_report(df, filename="HR_Report.pdf", cleaning_summary=None, model_accuracy=None):
+def generate_hr_report(df, filename="HR_Report.pdf", cleaning_summary=None, model_accuracy=None, export_csv=True):
     """
     Main function to generate the complete HR Analytics PDF report.
     """
@@ -759,7 +936,7 @@ def generate_hr_report(df, filename="HR_Report.pdf", cleaning_summary=None, mode
     elements.append(Spacer(1, 0.3 * inch))
     
     # 3. Data Cleaning Summary
-    elements.extend(build_data_cleaning_summary(df, cleaning_summary, styles))
+    elements.extend(build_data_cleaning_summary(df, styles, cleaning_summary))
     elements.append(Spacer(1, 0.3 * inch))
     
     # 4. Attrition Prediction (CORRECTED ORDER: df, styles, model_accuracy, temp_dir)
@@ -781,6 +958,10 @@ def generate_hr_report(df, filename="HR_Report.pdf", cleaning_summary=None, mode
     # 8. Compensation Analysis
     elements.extend(build_compensation_report(df, styles, temp_dir))
     elements.append(Spacer(1, 0.3 * inch))
+
+    # HIGH-RISK EMPLOYEES SECTION 
+    elements.extend(build_high_risk_employees_section(df, styles))
+    elements.append(Spacer(1, 0.3 * inch))
     
     # 9. Correlation Analysis
     elements.extend(build_correlation_report(df, styles, temp_dir))
@@ -799,9 +980,18 @@ def generate_hr_report(df, filename="HR_Report.pdf", cleaning_summary=None, mode
     
     # Build PDF
     doc.build(elements)
+    # Export cleaned data as CSV 
+    csv_path = None
+    if export_csv:
+        import os
+        output_dir = os.path.dirname(filename) or "."
+        csv_path = export_cleaned_data_with_predictions(df, output_dir)
     
-    # Cleanup temp files
+    
+ 
     import shutil
     shutil.rmtree(temp_dir, ignore_errors=True)
     
+    if export_csv:
+        return filename, csv_path
     return filename

@@ -2,3 +2,10 @@ venv/
 __pycache__/
 *.pyc
 *.csv
+output/
+*.pdf
+*.csv
+.DS_Store
+venv/
+.env
+.streamlit/
