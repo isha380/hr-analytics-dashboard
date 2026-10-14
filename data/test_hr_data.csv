@@ -1,0 +1,256 @@
+EmployeeID,Age,Gender,Department,JobRole,MonthlyIncome,YearsAtCompany,YearsWithCurrManager,SickLeaveTaken,AnnualLeaveTaken,AbsenteeismRate,OverTime,Feedback,Attrition
+EMP0176,53,Male,IT,Data Analyst,11002.0,7,6,3,10,0.13,No,"No clear career path, feeling stuck in my role.",No
+EMP0248,58,Female,Sales,Sales Representative,8143.0,8,8,7,18,0.13,Yes,"I love working here, great team and culture.",Yes
+EMP0065,57,Male,Marketing,Content Strategist,12549.0,1,1,9,2,0.04,No,"I love working here, great team and culture.",No
+EMP0177,53,Male,Finance,Finance Manager,14674.0,1,1,1,12,0.14,No,"The job is fine, but the benefits could be better.",Yes
+EMP0123,35,Male,Marketing,Marketing Manager,13860.0,14,0,1,15,0.15,Yes,Poor communication and toxic team environment.,Yes
+EMP0052,38,male,Marketing,Marketing Coordinator,9645.0,9,7,5,13,0.09,Yes,Good work-life balance and fair compensation.,No
+EMP0187,23,Female,Finance,Financial Analyst,11730.0,7,7,9,13,0.11,Yes,Too much workload and not enough support from management.,No
+EMP0053,57,Female,Sales,Sales Representative,7486.0,13,5,4,12,0.09,No,Excellent management and very supportive environment.,No
+EMP0230,39,Female,Sales,Sales Representative,7900.0,8,0,2,14,0.12,No,"No clear career path, feeling stuck in my role.",Yes
+EMP0077,47,Male,Sales,Sales Manager,8835.0,9,8,6,3,0.06,Yes,Too much workload and not enough support from management.,No
+EMP0081,36,Male,Finance,Finance Manager,11312.0,3,3,4,11,0.12,Yes,Excellent management and very supportive environment.,Yes
+EMP0067,52,Female,Marketing,Content Strategist,4667.0,3,3,4,5,0.07,No,"No clear career path, feeling stuck in my role.",No
+EMP0008,40,Female,IT,Software Developer,7141.0,3,2,5,17,0.05,Yes,"It's an okay place to work, nothing special.",No
+EMP0208,43,Male,IT,Data Analyst,4760.0,0,0,8,13,0.06,No,Good work-life balance and fair compensation.,Yes
+EMP0040,25,Female,HR,Recruiter,4133.0,2,2,4,6,0.04,Yes,"Compensation is below market rate, very frustrating.",Yes
+EMP0041,46,Male,,HR Specialist,6105.0,14,4,7,4,0.12,Yes,"Compensation is below market rate, very frustrating.",No
+EMP0138,44,Male,Finance,Financial Analyst,11939.0,2,0,7,14,0.05,Yes,Good work-life balance and fair compensation.,Yes
+EMP0117,58,Female,Finance,Financial Analyst,12702.0,5,5,6,19,0.11,No,Poor communication and toxic team environment.,No
+EMP0051,35,Female,  it  ,Marketing Manager,7376.0,5,5,5,1,0.06,No,"The job is fine, but the benefits could be better.",No
+EMP0036,42,Male,Sales,Account Executive,11576.0,1,1,4,12,0.05,No,,No
+EMP0225,28,Male,HR,Recruiter,11570.0,10,2,2,11,0.02,Yes,Poor communication and toxic team environment.,No
+EMP0001,60,Male,IT,Software Developer,13872.0,9,6,4,10,0.11,Yes,Excellent management and very supportive environment.,No
+EMP0220,47,Male,HR,HR Specialist,4666.0,2,2,2,5,0.06,Yes,"It's an okay place to work, nothing special.",No
+EMP0154,41,Male,Sales,Sales Representative,12427.0,9,0,9,13,0.05,Yes,"The job is fine, but the benefits could be better.",No
+EMP0028,48,Male,Finance,Accountant,13576.0,2,2,0,18,0.0,No,Too much workload and not enough support from management.,No
+EMP0007,60,Female,IT,Software Developer,14019.0,12,6,8,15,0.1,No,"I love working here, great team and culture.",No
+EMP0215,50,Female,HR,Recruiter,13091.0,8,2,4,7,0.03,No,Excellent management and very supportive environment.,No
+EMP0145,53,Male,Marketing,Marketing Manager,11239.0,3,0,3,14,0.01,Yes,"No clear career path, feeling stuck in my role.",No
+EMP0042,35,Male,,Marketing Manager,7627.0,8,3,3,10,0.06,No,Poor communication and toxic team environment.,No
+EMP0062,47,Male,IT,Software Developer,5353.0,2,0,0,7,0.09,No,"No clear career path, feeling stuck in my role.",Yes
+EMP0219,40,Male,HR,HR Specialist,7266.0,13,4,8,8,0.14,Yes,Good work-life balance and fair compensation.,Yes
+EMP0209,32,Male,Finance,Finance Manager,11830.0,7,1,0,17,0.15,No,Excellent management and very supportive environment.,No
+EMP0116,56,Male,Marketing,Marketing Coordinator,11266.0,14,8,9,13,0.03,No,I feel valued and have great growth opportunities.,No
+EMP0222,40,Male,HR,Recruiter,4671.0,4,4,9,6,0.12,No,"I love working here, great team and culture.",Yes
+EMP0061,39,Male,Marketing,Marketing Coordinator,11114.0,9,8,3,16,0.09,Yes,"Some good days, some bad days, average experience.",No
+EMP0186,23,Male,Sales,Sales Manager,7177.0,14,0,3,11,0.11,No,"Some good days, some bad days, average experience.",No
+EMP0087,22,Female,IT,Software Developer,4924.0,12,8,0,13,0.01,Yes,Poor communication and toxic team environment.,No
+EMP0229,60,Female,Marketing,Marketing Manager,8777.0,3,3,7,19,0.09,No,"The job is fine, but the benefits could be better.",No
+EMP0035,28,Female,Sales,Sales Representative,5531.0,12,5,2,10,0.04,Yes,,No
+EMP0133,60,Male,Marketing,Marketing Coordinator,10600.0,1,0,7,1,0.09,Yes,"Compensation is below market rate, very frustrating.",No
+EMP0193,22,Male,Sales,Account Executive,10327.0,0,0,7,7,0.14,No,"No clear career path, feeling stuck in my role.",No
+EMP0131,34,Male,HR,Recruiter,8178.0,13,3,6,5,0.12,No,Good work-life balance and fair compensation.,No
+EMP0079,62,Female,IT,IT Manager,10042.0,4,4,2,3,0.05,No,"Some good days, some bad days, average experience.",No
+EMP0043,30,Female,,Sales Manager,10316.0,6,1,0,12,0.09,No,"It's an okay place to work, nothing special.",No
+EMP0242,37,Male,Finance,Accountant,10190.0,5,5,8,17,0.12,No,"I love working here, great team and culture.",No
+EMP0100,49,Male,HR,Recruiter,11409.0,10,4,5,18,0.07,Yes,Poor communication and toxic team environment.,No
+EMP0148,49,Male,Finance,Finance Manager,12865.0,0,0,1,19,0.1,Yes,"Some good days, some bad days, average experience.",No
+EMP0156,32,Female,Marketing,Content Strategist,11901.0,5,5,6,13,0.06,Yes,"It's an okay place to work, nothing special.",Yes
+EMP0016,24,Male,Marketing,Marketing Manager,,11,3,4,17,0.13,Yes,I feel valued and have great growth opportunities.,No
+EMP0196,47,Female,Sales,Sales Manager,6832.0,11,4,6,1,0.03,No,I feel valued and have great growth opportunities.,No
+EMP0009,44,Female,HR,Recruiter,11419.0,14,5,1,5,0.08,Yes,"I love working here, great team and culture.",No
+EMP0231,61,Female,HR,HR Specialist,10677.0,12,9,2,6,0.1,No,Too much workload and not enough support from management.,No
+EMP0235,46,Female,Sales,Sales Manager,6393.0,7,1,8,3,0.12,No,"Some good days, some bad days, average experience.",No
+EMP0130,63,Female,HR,HR Specialist,8809.0,2,0,9,0,0.02,Yes,"I love working here, great team and culture.",No
+EMP0236,44,Female,Finance,Accountant,6593.0,7,2,3,5,0.08,No,"I love working here, great team and culture.",No
+EMP0069,29,Male,Sales,Sales Manager,13337.0,5,5,8,6,0.07,Yes,"The job is fine, but the benefits could be better.",Yes
+EMP0233,32,Female,Sales,Account Executive,10376.0,8,6,7,19,0.05,No,"Some good days, some bad days, average experience.",No
+EMP0184,58,Male,HR,HR Manager,8637.0,8,2,8,8,0.06,Yes,"It's an okay place to work, nothing special.",No
+EMP0068,36,Male,Marketing,Content Strategist,8468.0,14,4,8,18,0.05,Yes,I feel valued and have great growth opportunities.,Yes
+EMP0218,57,Female,Finance,Finance Manager,5887.0,11,3,0,5,0.03,No,"I love working here, great team and culture.",No
+EMP0243,47,Male,Sales,Sales Manager,9240.0,0,0,2,11,0.11,Yes,"The job is fine, but the benefits could be better.",Yes
+EMP0182,23,Male,IT,Software Developer,13550.0,8,8,8,10,0.04,Yes,Excellent management and very supportive environment.,Yes
+EMP0006,42,Female,Finance,Accountant,13347.0,2,2,3,4,0.0,Yes,Good work-life balance and fair compensation.,No
+EMP0105,55,Male,HR,HR Specialist,6193.0,7,7,8,3,0.09,Yes,I feel valued and have great growth opportunities.,No
+EMP0033,24,Female,IT,Data Analyst,4504.0,14,0,5,8,0.1,Yes,,No
+EMP0073,42,Male,Sales,Sales Representative,11483.0,7,7,8,14,0.09,No,"It's an okay place to work, nothing special.",No
+EMP0170,30,Female,Sales,Sales Representative,10949.0,4,4,4,7,0.03,Yes,"Some good days, some bad days, average experience.",No
+EMP0047,49,Male,Sales,Account Executive,9348.0,6,3,5,10,0.06,No,"No clear career path, feeling stuck in my role.",No
+EMP0084,28,Male,Finance,Finance Manager,11891.0,10,3,1,0,0.13,Yes,"I love working here, great team and culture.",No
+EMP0204,45,Female,Marketing,Content Strategist,10269.0,1,1,9,6,0.08,Yes,"I love working here, great team and culture.",No
+EMP0159,60,Female,IT,Software Developer,10544.0,10,0,6,11,0.05,No,"Compensation is below market rate, very frustrating.",No
+EMP0096,26,Female,HR,HR Manager,14136.0,5,5,4,0,0.02,No,"Some good days, some bad days, average experience.",No
+EMP0107,44,Male,Finance,Finance Manager,11449.0,8,5,8,2,0.08,No,"Some good days, some bad days, average experience.",No
+EMP0048,28,Male,Sales,Sales Representative,13442.0,8,8,1,6,0.01,Yes,"The job is fine, but the benefits could be better.",No
+EMP0142,50,Male,HR,HR Manager,14015.0,5,2,6,13,0.13,No,Too much workload and not enough support from management.,Yes
+EMP0152,49,Female,Finance,Finance Manager,14176.0,14,1,6,2,0.14,No,I feel valued and have great growth opportunities.,Yes
+EMP0192,54,Female,Finance,Financial Analyst,4137.0,14,3,7,9,0.01,No,Good work-life balance and fair compensation.,Yes
+EMP0205,26,Female,IT,Software Developer,7818.0,11,2,1,1,0.09,No,"Some good days, some bad days, average experience.",No
+EMP0009,44,Female,HR,Recruiter,11419.0,14,5,1,5,0.08,Yes,"I love working here, great team and culture.",No
+EMP0076,45,Male,IT,IT Manager,8964.0,2,2,8,19,0.05,Yes,"No clear career path, feeling stuck in my role.",No
+EMP0094,56,Female,HR,Recruiter,8804.0,4,4,2,6,0.03,No,"Some good days, some bad days, average experience.",No
+EMP0178,45,Male,IT,Software Developer,14209.0,3,3,4,0,0.12,No,I feel valued and have great growth opportunities.,No
+EMP0083,46,Male,Sales,Sales Representative,10132.0,1,1,5,9,0.07,No,"No clear career path, feeling stuck in my role.",No
+EMP0063,55,Female,HR,Recruiter,14975.0,8,7,1,1,0.06,Yes,"Some good days, some bad days, average experience.",No
+EMP0049,29,Female,HR,Recruiter,10190.0,0,0,6,17,0.07,No,"No clear career path, feeling stuck in my role.",No
+EMP0202,38,Female,Sales,Sales Representative,9569.0,10,0,4,12,0.1,No,Poor communication and toxic team environment.,No
+EMP0210,37,Male,HR,HR Manager,11350.0,5,0,9,14,0.12,No,"It's an okay place to work, nothing special.",No
+EMP0109,58,Female,HR,HR Specialist,7925.0,2,2,9,8,0.08,No,Too much workload and not enough support from management.,No
+EMP0031,37,Male,HR,HR Manager,10530.0,13,4,9,0,0.09,No,,No
+EMP0223,41,Female,Sales,Account Executive,14161.0,4,1,0,8,0.06,No,I feel valued and have great growth opportunities.,No
+EMP0082,22,Female,HR,HR Specialist,9320.0,9,4,2,16,0.11,No,"Some good days, some bad days, average experience.",No
+EMP0169,48,Female,Finance,Accountant,10881.0,9,6,3,16,0.09,Yes,"Some good days, some bad days, average experience.",No
+EMP0034,58,Male,Sales,Account Executive,5214.0,11,5,0,12,0.15,No,,No
+EMP0224,53,Female,HR,HR Manager,10777.0,2,2,9,17,0.08,Yes,Too much workload and not enough support from management.,No
+EMP0115,22,Male,Sales,Sales Manager,14344.0,7,7,5,14,0.02,No,Good work-life balance and fair compensation.,No
+EMP0055,25,Female,Finance,Finance Manager,13588.0,8,7,0,6,0.01,No,Too much workload and not enough support from management.,No
+EMP0249,53,Female,Marketing,Marketing Coordinator,7644.0,0,0,8,13,0.07,Yes,Good work-life balance and fair compensation.,No
+EMP0080,50,Male,Sales,Sales Manager,11102.0,5,0,1,16,0.08,No,"Some good days, some bad days, average experience.",No
+EMP0185,38,Male,Finance,Finance Manager,8854.0,10,2,7,16,0.08,No,"No clear career path, feeling stuck in my role.",No
+EMP0155,51,Male,IT,IT Manager,12580.0,13,1,1,14,0.13,Yes,Poor communication and toxic team environment.,Yes
+EMP0143,57,Female,IT,Software Developer,14273.0,9,7,7,16,0.15,Yes,Poor communication and toxic team environment.,No
+EMP0093,56,Male,Finance,Financial Analyst,4255.0,5,4,7,11,0.03,No,"Some good days, some bad days, average experience.",Yes
+EMP0110,56,Male,IT,IT Manager,10970.0,2,1,6,6,0.02,No,Good work-life balance and fair compensation.,No
+EMP0071,44,Male,IT,IT Manager,7719.0,14,0,0,8,0.02,No,Good work-life balance and fair compensation.,No
+EMP0247,26,Male,Finance,Financial Analyst,6878.0,0,0,8,18,0.04,Yes,"No clear career path, feeling stuck in my role.",No
+EMP0200,25,Female,IT,Software Developer,14785.0,4,4,3,12,0.09,No,"Some good days, some bad days, average experience.",No
+EMP0045,23,Male,Sales,Sales Representative,8910.0,11,2,7,9,0.06,No,Poor communication and toxic team environment.,Yes
+EMP0057,27,Male,Finance,Accountant,7330.0,12,9,3,12,0.05,No,"The job is fine, but the benefits could be better.",No
+EMP0060,50,Male,HR,Recruiter,12120.0,3,1,2,8,0.0,No,"It's an okay place to work, nothing special.",No
+EMP0127,36,Male,IT,Software Developer,11140.0,13,4,6,18,0.12,No,"Some good days, some bad days, average experience.",No
+EMP0147,43,Female,Marketing,Content Strategist,4249.0,3,2,8,17,0.02,No,"It's an okay place to work, nothing special.",No
+EMP0038,60,Female,Sales,Sales Manager,4928.0,5,3,2,3,0.07,Yes,Excellent management and very supportive environment.,No
+EMP0074,37,Female,Sales,Account Executive,4539.0,0,0,7,4,0.14,Yes,"No clear career path, feeling stuck in my role.",Yes
+EMP0021,59,Male,Sales,Account Executive,,12,5,5,7,0.09,No,Excellent management and very supportive environment.,No
+EMP0103,29,Male,Finance,Accountant,5015.0,13,2,8,13,0.05,Yes,"The job is fine, but the benefits could be better.",Yes
+EMP0227,54,Female,IT,Data Analyst,9124.0,9,9,1,7,0.1,No,"Compensation is below market rate, very frustrating.",No
+EMP0139,60,Male,IT,Software Developer,9565.0,12,6,9,11,0.02,Yes,Too much workload and not enough support from management.,No
+EMP0085,30,Male,IT,IT Manager,14700.0,7,5,2,17,0.08,No,Too much workload and not enough support from management.,No
+EMP0102,30,Female,Sales,Account Executive,9124.0,13,8,7,1,0.0,No,Poor communication and toxic team environment.,No
+EMP0037,30,Male,HR,Recruiter,4823.0,9,7,3,9,0.06,No,"Some good days, some bad days, average experience.",Yes
+EMP0026,43,Female,IT,IT Manager,12647.0,2,0,6,0,0.08,No,I feel valued and have great growth opportunities.,No
+EMP0099,62,Male,Finance,Finance Manager,12989.0,13,8,4,14,0.06,Yes,"Some good days, some bad days, average experience.",Yes
+EMP0173,63,Female,HR,Recruiter,12017.0,11,7,2,13,0.08,No,"It's an okay place to work, nothing special.",No
+EMP0024,54,Male,Marketing,Content Strategist,13273.0,10,4,8,12,0.08,No,"Some good days, some bad days, average experience.",No
+EMP0228,61,Male,HR,HR Specialist,9585.0,13,5,0,17,0.08,No,"It's an okay place to work, nothing special.",No
+EMP0134,53,Female,Sales,Account Executive,9997.0,14,3,2,2,0.14,No,"I love working here, great team and culture.",No
+EMP0004,64,Female,IT,IT Manager,8312.0,7,7,4,5,0.01,Yes,Good work-life balance and fair compensation.,Yes
+EMP0125,48,Male,Marketing,Content Strategist,5460.0,5,5,1,19,0.0,No,"I love working here, great team and culture.",No
+EMP0163,34,Female,IT,IT Manager,5252.0,10,2,8,5,0.06,No,"It's an okay place to work, nothing special.",No
+EMP0101,28,Male,Sales,Account Executive,11418.0,13,9,5,10,0.1,No,I feel valued and have great growth opportunities.,No
+EMP0056,23,Male,Sales,Sales Manager,12053.0,0,0,9,1,0.1,Yes,"The job is fine, but the benefits could be better.",Yes
+EMP0070,35,Male,IT,IT Manager,10819.0,1,1,7,9,0.1,No,"I love working here, great team and culture.",No
+EMP0075,39,Female,HR,HR Manager,14971.0,11,2,9,3,0.04,Yes,"Compensation is below market rate, very frustrating.",No
+EMP0020,51,Male,Marketing,Marketing Coordinator,,1,1,8,2,0.13,No,Good work-life balance and fair compensation.,No
+EMP0162,48,Female,HR,HR Manager,7374.0,12,6,4,8,0.08,No,Good work-life balance and fair compensation.,Yes
+EMP0121,26,Male,HR,HR Specialist,6000.0,10,7,2,11,0.04,No,"It's an okay place to work, nothing special.",No
+EMP0014,61,Female,Finance,Accountant,9301.0,13,7,9,12,0.06,No,Poor communication and toxic team environment.,No
+EMP0206,55,Male,IT,IT Manager,5906.0,2,2,8,5,0.01,Yes,Excellent management and very supportive environment.,No
+EMP0054,61,Female,HR,Recruiter,7584.0,11,5,7,11,0.1,No,"The job is fine, but the benefits could be better.",No
+EMP0058,63,Male,Finance,Accountant,6703.0,3,3,3,13,0.06,No,Excellent management and very supportive environment.,No
+EMP0090,32,Male,HR,Recruiter,7324.0,8,6,8,3,0.03,No,"It's an okay place to work, nothing special.",No
+EMP0194,40,Male,Finance,Financial Analyst,7472.0,4,4,1,17,0.1,No,"Compensation is below market rate, very frustrating.",Yes
+EMP0137,58,Male,IT,Software Developer,4716.0,9,7,4,17,0.09,No,"Compensation is below market rate, very frustrating.",No
+EMP0188,49,Male,Finance,Accountant,14320.0,5,1,4,14,0.08,Yes,"I love working here, great team and culture.",No
+EMP0112,43,Female,IT,Software Developer,8784.0,7,0,6,10,0.02,No,I feel valued and have great growth opportunities.,No
+EMP0066,35,Male,IT,Data Analyst,11575.0,14,4,1,15,0.13,Yes,"Some good days, some bad days, average experience.",No
+EMP0198,27,Male,IT,Software Developer,9971.0,1,1,3,0,0.03,Yes,Good work-life balance and fair compensation.,Yes
+EMP0250,30,Female,Finance,Finance Manager,8432.0,0,0,4,3,0.08,No,Poor communication and toxic team environment.,No
+EMP0234,49,Male,IT,Data Analyst,4523.0,1,0,8,15,0.14,No,"No clear career path, feeling stuck in my role.",Yes
+EMP0098,60,Male,Marketing,Marketing Coordinator,6871.0,3,3,6,14,0.1,No,"No clear career path, feeling stuck in my role.",No
+EMP0161,22,Female,IT,IT Manager,6814.0,3,3,0,3,0.09,No,I feel valued and have great growth opportunities.,No
+EMP0064,31,Female,HR,Recruiter,9063.0,12,3,8,12,0.04,No,Good work-life balance and fair compensation.,No
+EMP0197,53,Female,Marketing,Marketing Manager,7579.0,11,6,3,0,0.07,No,Poor communication and toxic team environment.,No
+EMP0132,53,Female,Marketing,Marketing Coordinator,11245.0,8,8,0,14,0.14,Yes,"Compensation is below market rate, very frustrating.",No
+EMP0214,37,Female,HR,Recruiter,11687.0,10,1,4,16,0.12,No,"The job is fine, but the benefits could be better.",Yes
+EMP0005,29,Male,Finance,Financial Analyst,5324.0,0,0,9,7,0.02,No,"It's an okay place to work, nothing special.",Yes
+EMP0167,27,Female,Marketing,Content Strategist,8530.0,1,1,8,10,0.07,No,Poor communication and toxic team environment.,No
+EMP0129,47,Female,Sales,Sales Representative,14916.0,5,5,1,2,0.12,No,"It's an okay place to work, nothing special.",No
+EMP0072,61,Female,Finance,Accountant,6745.0,7,7,0,1,0.07,No,I feel valued and have great growth opportunities.,No
+EMP0240,56,Female,Finance,Accountant,10937.0,2,1,7,13,0.13,No,Good work-life balance and fair compensation.,No
+EMP0106,54,Female,Sales,Sales Representative,12415.0,6,6,9,16,0.04,No,I feel valued and have great growth opportunities.,No
+EMP0199,53,Male,Marketing,Marketing Manager,8164.0,13,6,7,8,0.02,Yes,I feel valued and have great growth opportunities.,No
+EMP0166,60,Female,Finance,Financial Analyst,14314.0,5,2,9,7,0.08,Yes,Good work-life balance and fair compensation.,No
+EMP0128,36,Male,Marketing,Content Strategist,7636.0,7,0,2,4,0.13,No,Good work-life balance and fair compensation.,No
+EMP0025,33,Female,IT,Data Analyst,10619.0,7,6,4,12,0.08,No,"No clear career path, feeling stuck in my role.",No
+EMP0111,61,Male,IT,Software Developer,10938.0,14,1,0,14,0.02,No,"Some good days, some bad days, average experience.",No
+EMP0108,45,Male,HR,Recruiter,8158.0,6,1,9,12,0.05,No,Excellent management and very supportive environment.,Yes
+EMP0207,27,Male,HR,Recruiter,10254.0,2,2,9,6,0.11,No,Too much workload and not enough support from management.,No
+EMP0030,49,Female,IT,Software Developer,7072.0,6,6,4,7,0.09,No,Poor communication and toxic team environment.,No
+EMP0157,49,Male,Finance,Financial Analyst,8858.0,4,2,1,6,0.04,No,Poor communication and toxic team environment.,No
+EMP0023,42,Male,IT,IT Manager,7709.0,13,0,1,7,0.12,Yes,"Compensation is below market rate, very frustrating.",Yes
+EMP0019,45,Female,IT,Software Developer,,7,6,4,18,0.06,No,Too much workload and not enough support from management.,No
+EMP0245,22,Male,Finance,Finance Manager,14478.0,14,5,1,12,0.06,No,"It's an okay place to work, nothing special.",No
+EMP0003,36,Female,HR,HR Specialist,11494.0,0,0,1,14,0.07,Yes,I feel valued and have great growth opportunities.,No
+EMP0097,63,Male,Finance,Finance Manager,4009.0,6,6,0,5,0.09,No,"The job is fine, but the benefits could be better.",No
+EMP0165,24,Female,Finance,Financial Analyst,8673.0,0,0,8,1,0.09,No,"It's an okay place to work, nothing special.",Yes
+EMP0171,58,Female,Sales,Sales Representative,13521.0,6,1,0,17,0.1,No,"Some good days, some bad days, average experience.",No
+EMP0191,53,Male,IT,IT Manager,11043.0,13,7,6,0,0.13,Yes,"It's an okay place to work, nothing special.",No
+EMP0044,47,Female,Finance,Financial Analyst,5852.0,4,2,6,18,0.09,No,Good work-life balance and fair compensation.,No
+EMP0088,29,Male,Sales,Account Executive,5581.0,5,0,0,14,0.15,No,Poor communication and toxic team environment.,Yes
+EMP0195,23,Female,Sales,Sales Representative,9449.0,13,5,8,0,0.06,No,"The job is fine, but the benefits could be better.",No
+EMP0241,28,Male,IT,Software Developer,14488.0,12,8,2,10,0.1,No,"No clear career path, feeling stuck in my role.",No
+EMP0050,56,Female,Sales,Sales Representative,5256.0,6,3,7,3,0.01,No,"I love working here, great team and culture.",No
+EMP0027,46,Male,Sales,Sales Manager,13086.0,6,3,9,5,0.09,No,"I love working here, great team and culture.",No
+EMP0180,33,Male,Finance,Accountant,8261.0,14,7,0,8,0.02,Yes,Poor communication and toxic team environment.,No
+EMP0189,44,Female,IT,Software Developer,6180.0,6,2,4,15,0.12,Yes,I feel valued and have great growth opportunities.,Yes
+EMP0246,33,Male,IT,Data Analyst,10493.0,14,3,9,12,0.02,Yes,"Compensation is below market rate, very frustrating.",No
+EMP0244,23,Female,Sales,Account Executive,14453.0,6,5,8,11,0.02,No,"The job is fine, but the benefits could be better.",No
+EMP0029,63,Male,Finance,Financial Analyst,14150.0,14,1,9,15,0.06,No,"It's an okay place to work, nothing special.",No
+EMP0092,29,Male,Marketing,Marketing Coordinator,11026.0,4,4,0,19,0.1,No,Excellent management and very supportive environment.,No
+EMP0221,24,Male,Marketing,Marketing Coordinator,8188.0,4,4,3,8,0.01,No,Too much workload and not enough support from management.,No
+EMP0089,45,Female,HR,HR Specialist,11714.0,4,4,9,11,0.02,No,"No clear career path, feeling stuck in my role.",No
+EMP0150,63,Female,HR,HR Manager,4770.0,0,0,9,2,0.14,No,Poor communication and toxic team environment.,Yes
+EMP0086,45,Male,Sales,Account Executive,6779.0,10,6,4,17,0.08,No,"Compensation is below market rate, very frustrating.",No
+EMP0151,27,Male,HR,HR Specialist,8363.0,11,1,1,11,0.07,No,"Some good days, some bad days, average experience.",No
+EMP0135,25,Male,HR,HR Specialist,6048.0,10,5,1,16,0.12,No,"No clear career path, feeling stuck in my role.",Yes
+EMP0104,33,Female,IT,Software Developer,14016.0,14,3,1,1,0.15,Yes,I feel valued and have great growth opportunities.,No
+EMP0046,41,Female,HR,HR Specialist,8175.0,9,3,2,9,0.08,No,"No clear career path, feeling stuck in my role.",Yes
+EMP0136,51,Female,Marketing,Content Strategist,8780.0,7,5,2,11,0.1,No,"Compensation is below market rate, very frustrating.",No
+EMP0126,30,Male,IT,IT Manager,11190.0,0,0,3,5,0.04,Yes,"The job is fine, but the benefits could be better.",No
+EMP0203,59,Male,Marketing,Content Strategist,8300.0,8,6,2,19,0.14,Yes,Good work-life balance and fair compensation.,No
+EMP0141,64,Male,Marketing,Marketing Manager,8976.0,4,4,6,7,0.05,No,"The job is fine, but the benefits could be better.",No
+EMP0211,54,Male,HR,HR Specialist,10238.0,11,4,2,1,0.08,No,Excellent management and very supportive environment.,No
+EMP0018,23,Male,HR,HR Manager,,13,3,5,12,0.14,No,Too much workload and not enough support from management.,No
+EMP0175,36,Male,Sales,Sales Representative,13550.0,12,8,1,5,0.14,Yes,"The job is fine, but the benefits could be better.",No
+EMP0012,45,Male,Finance,Accountant,10588.0,7,6,8,12,0.06,No,"I love working here, great team and culture.",No
+EMP0039,39,Female,IT,IT Manager,9029.0,2,2,9,5,0.13,No,"The job is fine, but the benefits could be better.",No
+EMP0010,32,Female,Finance,Financial Analyst,7486.0,14,5,0,4,0.07,Yes,"Compensation is below market rate, very frustrating.",Yes
+EMP0216,24,Male,IT,Data Analyst,13911.0,4,4,5,10,0.04,Yes,"The job is fine, but the benefits could be better.",No
+EMP0122,47,Female,IT,IT Manager,14948.0,3,0,7,14,0.1,No,"Compensation is below market rate, very frustrating.",No
+EMP0006,42,Female,Finance,Accountant,13347.0,2,2,3,4,0.0,Yes,Good work-life balance and fair compensation.,No
+EMP0120,22,Male,Marketing,Marketing Manager,12175.0,11,4,8,16,0.14,Yes,"No clear career path, feeling stuck in my role.",No
+EMP0113,48,Female,Sales,Sales Representative,8000.0,4,2,9,19,0.14,Yes,Excellent management and very supportive environment.,Yes
+EMP0174,45,Male,Sales,Account Executive,10941.0,1,0,7,14,0.08,No,"It's an okay place to work, nothing special.",No
+EMP0179,62,Female,Finance,Financial Analyst,5331.0,0,0,8,5,0.02,No,"I love working here, great team and culture.",Yes
+EMP0238,51,Female,IT,Software Developer,13945.0,7,7,1,8,0.05,No,Good work-life balance and fair compensation.,Yes
+EMP0172,54,Female,Sales,Account Executive,10241.0,9,6,0,17,0.11,No,"Some good days, some bad days, average experience.",Yes
+EMP0213,27,Male,IT,Data Analyst,10031.0,7,7,5,11,0.13,No,Excellent management and very supportive environment.,No
+EMP0212,30,Male,Sales,Account Executive,10090.0,12,3,7,9,0.02,Yes,"Compensation is below market rate, very frustrating.",Yes
+EMP0158,46,Male,IT,IT Manager,14040.0,13,3,2,16,0.1,No,Excellent management and very supportive environment.,No
+EMP0022,23,Male,Finance,Accountant,13435.0,9,8,7,1,0.11,No,I feel valued and have great growth opportunities.,No
+EMP0008,40,Female,IT,Software Developer,7141.0,3,2,5,17,0.05,Yes,"It's an okay place to work, nothing special.",No
+EMP0217,41,Female,Finance,Accountant,12472.0,13,6,6,2,0.12,No,Excellent management and very supportive environment.,No
+EMP0237,52,Female,Finance,Accountant,14160.0,6,0,4,2,0.04,Yes,Excellent management and very supportive environment.,No
+EMP0078,46,Male,HR,Recruiter,7775.0,8,5,2,17,0.09,No,Excellent management and very supportive environment.,No
+EMP0059,25,Male,Sales,Sales Representative,12662.0,8,7,2,16,0.13,No,"No clear career path, feeling stuck in my role.",No
+EMP0153,49,Female,Finance,Financial Analyst,5077.0,0,0,2,19,0.13,Yes,"I love working here, great team and culture.",Yes
+EMP0201,32,Female,Sales,Sales Representative,11941.0,7,6,5,0,0.08,No,Good work-life balance and fair compensation.,No
+EMP0183,24,Female,Sales,Account Executive,9115.0,0,0,0,18,0.07,No,Poor communication and toxic team environment.,No
+EMP0146,28,Female,Marketing,Marketing Manager,13766.0,2,2,5,13,0.04,Yes,"No clear career path, feeling stuck in my role.",No
+EMP0168,29,Male,Finance,Finance Manager,14342.0,7,0,6,12,0.0,No,"Some good days, some bad days, average experience.",No
+EMP0017,43,Male,Sales,Sales Representative,,6,0,9,7,0.03,No,"I love working here, great team and culture.",No
+EMP0015,45,Male,IT,Software Developer,14406.0,9,9,6,16,0.03,No,"I love working here, great team and culture.",No
+EMP0007,60,Female,IT,Software Developer,14019.0,12,6,8,15,0.1,No,"I love working here, great team and culture.",No
+EMP0011,32,Female,Finance,Financial Analyst,5810.0,14,2,4,15,0.01,No,"No clear career path, feeling stuck in my role.",No
+EMP0226,62,Female,IT,Data Analyst,11956.0,13,3,1,7,0.0,No,Too much workload and not enough support from management.,No
+EMP0124,60,Female,Marketing,Marketing Manager,9989.0,5,5,6,4,0.06,Yes,"The job is fine, but the benefits could be better.",No
+EMP0239,63,Female,Sales,Sales Representative,11240.0,13,7,8,9,0.11,Yes,Poor communication and toxic team environment.,Yes
+EMP0032,36,Female,IT,Software Developer,14188.0,10,9,1,15,0.12,No,,No
+EMP0144,34,Male,Marketing,Marketing Coordinator,7419.0,5,2,0,7,0.11,No,"Some good days, some bad days, average experience.",Yes
+EMP0095,54,Female,Marketing,Content Strategist,5838.0,5,4,7,10,0.01,No,Good work-life balance and fair compensation.,Yes
+EMP0160,54,Female,IT,IT Manager,8719.0,14,7,3,19,0.09,No,Too much workload and not enough support from management.,No
+EMP0181,60,Female,HR,HR Manager,11648.0,4,4,4,7,0.08,Yes,Poor communication and toxic team environment.,No
+EMP0013,57,Female,HR,HR Manager,6923.0,5,2,5,4,0.03,No,"No clear career path, feeling stuck in my role.",No
+EMP0118,35,Male,Finance,Finance Manager,4384.0,1,1,4,10,0.02,No,"The job is fine, but the benefits could be better.",No
+EMP0002,50,Female,Sales,Sales Representative,12702.0,3,1,5,1,0.13,No,Excellent management and very supportive environment.,No
+EMP0232,22,Male,HR,HR Manager,10981.0,9,7,5,10,0.03,No,I feel valued and have great growth opportunities.,No
+EMP0091,38,Female,IT,Software Developer,9713.0,0,0,6,2,0.01,No,"Compensation is below market rate, very frustrating.",No
+EMP0140,36,Male,HR,HR Manager,8544.0,11,0,6,15,0.09,No,"Some good days, some bad days, average experience.",No
+EMP0164,62,Female,HR,Recruiter,10996.0,2,2,7,15,0.08,No,"Some good days, some bad days, average experience.",No
+EMP0149,23,Male,Marketing,Marketing Coordinator,14357.0,3,0,0,6,0.11,Yes,I feel valued and have great growth opportunities.,No
+EMP0010,32,Female,Finance,Financial Analyst,7486.0,14,5,0,4,0.07,Yes,"Compensation is below market rate, very frustrating.",Yes
+EMP0114,56,Male,Finance,Financial Analyst,5633.0,3,3,4,1,0.11,No,"Compensation is below market rate, very frustrating.",Yes
+EMP0190,58,Male,Sales,Sales Representative,8892.0,2,2,5,19,0.06,No,Excellent management and very supportive environment.,No
+EMP0119,24,Male,Marketing,Marketing Coordinator,4404.0,3,3,6,2,0.04,No,Good work-life balance and fair compensation.,No

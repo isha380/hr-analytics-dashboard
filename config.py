@@ -5,7 +5,7 @@ Central place for constants, paths, and settings.
 
 # File paths
 DATA_FOLDER = "data"
-DEFAULT_CSV_FILE = "hr_data.csv"
+DEFAULT_CSV_FILE = "data/test_hr_data.csv"
 
 # Data cleaning settings
 DUPLICATE_COLUMNS = None  # Check all columns for duplicates
