@@ -1,4 +1,4 @@
-# HR Analytics Dashboard — Project Log
+# HR Analytics Dashboard 
 
 ## 1. Project Overview
 
