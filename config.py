@@ -9,7 +9,7 @@ DEFAULT_CSV_FILE = "data/test_hr_data.csv"
 
 # Data cleaning settings
 DUPLICATE_COLUMNS = None  # Check all columns for duplicates
-NUMERIC_FILL_METHOD = "median"  # Options: "mean", "median", "zero"
+NUMERIC_FILL_METHOD = "median"  
 TEXT_FILL_VALUE = "Unknown"
 
 # Chart settings

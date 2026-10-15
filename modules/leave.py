@@ -19,7 +19,7 @@ def calculate_department_leave_stats(df):
         'AbsenteeismRate': 'mean'
     }).round(2)
     
-    # Sort by absenteeism rate to see the worst departments first
+    
     stats = stats.sort_values(by='AbsenteeismRate', ascending=False)
     
     return stats
@@ -32,11 +32,11 @@ def get_top_absentees(df, top_n=5):
     Input: DataFrame with employee details and 'AbsenteeismRate'
     Output: DataFrame of the top N absentees
     """
-    # Sort the entire dataframe by absenteeism rate, highest first
+   
     top_absentees = df.sort_values(by='AbsenteeismRate', ascending=False)
     
-    # Select only the columns HR needs to see for a check-in
+    
     columns_to_show = ['JobRole', 'Department', 'OverTime', 'SickLeaveTaken', 'AnnualLeaveTaken', 'AbsenteeismRate', 'Attrition']
     
-    # Return the top N rows
+
     return top_absentees[columns_to_show].head(top_n)

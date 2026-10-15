@@ -4,8 +4,7 @@ Creates Plotly charts for dashboard display.
 """
 
 import plotly.express as px
-import config  # Import our configuration
-
+import config 
 
 
 def create_department_chart(df):
@@ -15,10 +14,10 @@ def create_department_chart(df):
     Input: DataFrame with 'Department' column
     Output: Plotly Figure object
     """
-    # Count employees in each department
+   
     dept_counts = df['Department'].value_counts()
     
-    # Create bar chart
+   
     fig = px.bar(
         x=dept_counts.index,
         y=dept_counts.values,
@@ -86,7 +85,7 @@ def create_correlation_heatmap(df):
     It visually highlights strong positive (blue) or negative (red) relationships
     between variables, helping HR identify hidden patterns (e.g., Age vs Income).
     """
-    # 1. Select only numeric columns (correlation only works on numbers)
+    # 1. Select only numeric columns
     numeric_df = df.select_dtypes(include=['float64', 'int64'])
     
     # 2. Calculate the correlation matrix
@@ -98,24 +97,17 @@ def create_correlation_heatmap(df):
         corr_matrix,
         text_auto=".2f",  # Shows the correlation number inside each box
         title="Feature Correlation Heatmap",
-        color_continuous_scale='RdBu_r', # Red-Blue color scale (Red=Negative, Blue=Positive)
+        color_continuous_scale='RdBu_r', 
         aspect="auto"
     )
     
-    # Adjust layout for better readability
+ 
     fig.update_layout(height=600)
     
     return fig
 
 def create_all_charts(df):
-    """
-    Master function that creates all charts at once.
-    Returns a dictionary of chart names -> figure objects.
     
-    Why this function?
-    Makes it easy to generate all charts with one call.
-    Useful for batch processing or PDF reports.
-    """
     charts = {
         "department": create_department_chart(df),
         "age": create_age_histogram(df),
